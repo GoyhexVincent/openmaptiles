@@ -56,6 +56,8 @@ tables:
       aeroway:
       - terminal
       - hangar
+      man_made:
+      - bridge
     filters:
       reject:
         building: ["no","none","No"]
