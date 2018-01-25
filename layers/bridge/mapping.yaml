@@ -1,0 +1,24 @@
+tables:
+  bridge_polygon:
+    type: polygon
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: validated_geometry
+    - name: man_made 
+      key: man_made
+      type: string
+    - name: wikidata
+      key: wikidata
+      type: string
+    - name: name
+      key: name
+      type: string
+    - name: area
+      type: area
+    - name: webmerc_area
+      type: webmerc_area
+    mapping:
+      man_made:
+      - bridge

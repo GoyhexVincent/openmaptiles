@@ -1,0 +1,15 @@
+layer:
+  id: "bridge"
+  description: |
+      All [OSM Bridges](http://wiki.openstreetmap.org/wiki/Bridges).
+  buffer_size: 4
+  datasource:
+    geometry_field: geometry
+    query: (SELECT geometry, wikidata FROM layer_bridge(!bbox!, z(!scale_denominator!))) AS t
+  fields:
+    wikidata:  Wikidata reference for the polygon
+schema:
+  - ./bridge.sql
+datasources:
+  - type: imposm3
+    mapping_file: ./mapping.yaml
