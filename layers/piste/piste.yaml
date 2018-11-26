@@ -1,14 +1,13 @@
 layer:
   id: "piste"
   description: |
-      All [OSM piste](http://wiki.openstreetmap.org/wiki/piste).
+      All [OSM Piste](http://wiki.openstreetmap.org/wiki/Pistes).
   buffer_size: 4
   datasource:
     geometry_field: geometry
     query: (SELECT geometry, difficulty, name FROM layer_piste(!bbox!, z(!scale_denominator!))) AS t
   fields:
-    difficulty:  type of piste: red, green, blue, black
-    name: name of the ski piste
+    difficulty:  returns piste difficulty
 schema:
   - ./piste.sql
 datasources:

@@ -1,6 +1,6 @@
 tables:
   piste_linestring:
-    type: linestring
+    type: polygon
     fields:
     - name: osm_id
       type: id
@@ -13,5 +13,5 @@ tables:
       key: name
       type: string
     mapping:
-      piste:type:
-      - downhill
+      piste:
+      - ["__any__"]
