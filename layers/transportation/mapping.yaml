@@ -22,12 +22,13 @@ generalized_tables:
 # etldoc: imposm3 -> osm_railway_linestring_gen1
   railway_linestring_gen1:
     source: railway_linestring
-    sql_filter: railway IN ('rail', 'narrow_gauge', 'light_rail') AND service=''
+    sql_filter: railway IN ('rail', 'narrow_gauge', 'light_rail') AND service='' AND ST_IsValid(geometry)
     tolerance: ZRES13
 
 # etldoc: imposm3 -> osm_aerialway_linestring_gen1
   aerialway_linestring_gen1:
     source: aerialway_linestring
+    sql_filter: ST_IsValid(geometry)
     tolerance: ZRES13
 
 # etldoc: imposm3 -> osm_shipway_linestring_gen2
@@ -38,6 +39,7 @@ generalized_tables:
 # etldoc: imposm3 -> osm_shipway_linestring_gen1
   shipway_linestring_gen1:
     source: shipway_linestring
+    sql_filter: ST_IsValid(geometry)
     tolerance: ZRES13
 
 # etldoc: imposm3 -> osm_highway_linestring_gen2
@@ -49,7 +51,7 @@ generalized_tables:
 # etldoc: imposm3 -> osm_highway_linestring_gen1
   highway_linestring_gen1:
     source: highway_linestring
-    sql_filter: highway IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary', 'motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary_link') AND NOT is_area
+    sql_filter: highway IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary', 'motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary_link') AND NOT is_area AND ST_IsValid(geometry)
     tolerance: ZRES12
 
 name_field: &name
@@ -124,6 +126,10 @@ indoor_field: &indoor
   key: indoor
   name: indoor
   type: bool
+man_made_field: &man_made
+  key: man_made
+  name: man_made
+  type: string
 z_order_field: &z_order
   name: z_order
   type: wayzorder
@@ -149,6 +155,8 @@ tables:
     - *name
     - *name_en
     - *name_de
+    - name: tags
+      type: hstore_tags
     - *short_name
     - *tunnel
     - *bridge
@@ -159,6 +167,7 @@ tables:
     - *service
     - *usage
     - *public_transport
+    - *man_made
     mapping:
       highway:
       - motorway
@@ -187,6 +196,8 @@ tables:
       - steps
       public_transport:
       - platform
+      man_made:
+      - pier
 
 # etldoc: imposm3 -> osm_railway_linestring
   railway_linestring:
@@ -208,6 +219,8 @@ tables:
     - *name
     - *name_en
     - *name_de
+    - name: tags
+      type: hstore_tags
     - *short_name
     - *tunnel
     - *bridge
@@ -244,6 +257,8 @@ tables:
     - *name
     - *name_en
     - *name_de
+    - name: tags
+      type: hstore_tags
     - *short_name
     - *tunnel
     - *bridge
@@ -273,6 +288,8 @@ tables:
     - *name
     - *name_en
     - *name_de
+    - name: tags
+      type: hstore_tags
     - *short_name
     - *tunnel
     - *bridge
@@ -306,6 +323,7 @@ tables:
       key: area
       type: bool
     - *public_transport
+    - *man_made
     mapping:
       highway:
       - path
@@ -317,6 +335,9 @@ tables:
       - steps
       public_transport:
       - platform
+      man_made:
+      - bridge
+      - pier
 
 # TODO: Future table for joining networks
 # etldoc: imposm3 -> osm_route_member
