@@ -1,0 +1,17 @@
+tables:
+  piste_linestring:
+    type: linestring
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: validated_geometry
+    - name: difficulty 
+      key: piste:difficulty
+      type: string
+    - name: name
+      key: name
+      type: string
+    mapping:
+      piste:type:
+      - downhill
