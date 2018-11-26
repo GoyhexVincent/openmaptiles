@@ -13,5 +13,5 @@ tables:
       key: name
       type: string
     mapping:
-      piste:
-      - ["__any__"]
+      piste:type: 
+      - downhill
