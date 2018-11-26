@@ -7,7 +7,7 @@ layer:
     geometry_field: geometry
     query: (SELECT geometry, difficulty, name FROM layer_piste(!bbox!, z(!scale_denominator!))) AS t
   fields:
-    difficulty:  returns piste difficulty
+    difficulty:  returns piste difficulty.
 schema:
   - ./piste.sql
 datasources:
