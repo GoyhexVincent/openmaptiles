@@ -1,14 +1,23 @@
-{
+:{
 	"version": 8,
-	"name": "custom_style",
+	"name": "Klokantech Basic",
+	"metadata": {
+		"mapbox:autocomposite": false,
+		"mapbox:type": "template",
+		"maputnik:renderer": "mbgljs",
+		"openmaptiles:version": "3.x",
+		"openmaptiles:mapbox:owner": "oryx",
+		"openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t"
+	},
 	"center": [8.54806714892635, 47.37180823552663],
 	"zoom": 12.241790506353492,
 	"bearing": 0,
 	"pitch": 0,
 	"sources": {
 		"openmaptiles": {
+
 			"type": "vector",
-			"tiles": ["http://localhost:8080/data/v3/{z}/{x}/{y}.pbf"]
+			"url": "http://localhost:8080/data/v3.json"
 		}
 	},
 	"glyphs": "http://localhost:8080/fonts/{fontstack}/{range}.pbf",
@@ -164,17 +173,6 @@
 			},
 			"line-opacity": 1
 		}
-	}, {
-		"id": "bridge",
-		"type": "fill",
-		"source": "openmaptiles",
-		"source-layer": "bridge",
-		"paint": {
-		        "fill-color": "hsl(47, 13%, 86%)",
-	                "fill-opacity": 0.7
-				
-			},
-			"fill-antialias": true
 	}, {
 		"id": "building",
 		"type": "fill",
