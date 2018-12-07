@@ -1,6 +1,6 @@
 tables:
   piste_linestring:
-    type: polygon
+    type: linestring
     fields:
     - name: osm_id
       type: id
