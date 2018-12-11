@@ -256,24 +256,92 @@
 			}
 		}
 	},  {
-		"id": "piste",
+		"id": "piste_expert",
 		"type": "line",
 		"source": "openmaptiles",
 		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","expert"]
+                ],
 		"layout": {
 			"line-cap": "butt",
 			"line-join": "miter"
 		},
 		"paint": {
-			"line-color": "#ff0000",
+			"line-color": "#000000",
 			"line-width": {
 				"base": 1.55,
 				"stops": [
 					[4, 0.25],
-					[20, 30]
+					[20, 20]
 				]
-			},
-			"line-dasharray": [0.36, 0.18]
+			}
+		}
+	}, {
+		"id": "piste_easy",
+		"type": "line",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["in","difficulty","easy", "novice"]
+                ],
+		"layout": {
+			"line-cap": "butt",
+			"line-join": "miter"
+		},
+		"paint": {
+			"line-color": "#70db70",
+			"line-width": {
+				"base": 1.55,
+				"stops": [
+					[4, 0.25],
+					[20, 20]
+				]
+			}
+		}
+	},  {
+		"id": "piste_advanced",
+		"type": "line",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","advanced"]
+                ],
+		"layout": {
+			"line-cap": "butt",
+			"line-join": "miter"
+		},
+		"paint": {
+			"line-color": "#ff3333",
+			"line-width": {
+				"base": 1.55,
+				"stops": [
+					[4, 0.25],
+					[20, 20]
+				]
+			}
+		}
+	},  {
+		"id": "piste_intermediate",
+		"type": "line",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","intermediate"]
+                ],
+		"layout": {
+			"line-cap": "butt",
+			"line-join": "miter"
+		},
+		"paint": {
+			"line-color": "#3366ff",
+			"line-width": {
+				"base": 1.55,
+				"stops": [
+					[4, 0.25],
+					[20, 20]
+				]
+			}
 		}
 	},{
 		"id": "tunnel_minor",
