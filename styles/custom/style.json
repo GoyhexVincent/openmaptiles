@@ -256,6 +256,30 @@
 			}
 		}
 	},  {
+		"id": "piste_expert_name",
+		"type": "symbol",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","expert"]
+                ],
+		"layout": {
+                        "symbol-placement": "line",
+                        "text-max-angle": 70,
+			"text-size": 13,
+			"text-font": ["Klokantech Noto Sans Regular"],
+			"visibility": "visible",
+			"icon-size": 1,
+                        "text-offset":[0,0.5],
+			"text-field": "{name}"
+		},
+		"paint": {
+                        "text-color":"#000000",
+                        "text-halo-color": "hsl(0, 0%, 100%)",
+			"text-halo-width": 1
+
+		}
+	},  {
 		"id": "piste_expert",
 		"type": "line",
 		"source": "openmaptiles",
@@ -277,7 +301,31 @@
 				]
 			}
 		}
-	}, {
+	},  {
+		"id": "piste_easy_name",
+		"type": "symbol",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["in","difficulty","easy", "novice"]
+                ],
+		"layout": {
+                        "symbol-placement": "line",
+                        "text-max-angle": 70,
+			"text-size": 13,
+			"text-font": ["Klokantech Noto Sans Regular"],
+			"visibility": "visible",
+                        "text-offset": [0,0.5],
+			"icon-size": 1,
+			"text-field": "{name}"
+		},
+		"paint": {
+                        "text-color":"#70db70",
+                        "text-halo-color": "hsl(0, 0%, 100%)",
+			"text-halo-width": 1
+
+		}
+	},{
 		"id": "piste_easy",
 		"type": "line",
 		"source": "openmaptiles",
@@ -298,6 +346,30 @@
 					[20, 20]
 				]
 			}
+		}
+	},  {
+		"id": "piste_advanced_name",
+		"type": "symbol",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","advanced"]
+                ],
+		"layout": {
+                        "symbol-placement": "line",
+                        "text-max-angle": 70,
+			"text-size": 13,
+			"text-font": ["Klokantech Noto Sans Regular"],
+			"visibility": "visible",
+                        "text-offset": [0,0.5],
+			"icon-size": 1,
+			"text-field": "{name}"
+		},
+		"paint": {
+                        "text-color":"#ff3333",
+                        "text-halo-color": "hsl(0, 0%, 100%)",
+			"text-halo-width": 1
+
 		}
 	},  {
 		"id": "piste_advanced",
@@ -322,6 +394,30 @@
 			}
 		}
 	},  {
+		"id": "piste_intermediate_name",
+		"type": "symbol",
+		"source": "openmaptiles",
+		"source-layer": "piste",
+                "filter": ["all", ["==", "$type", "LineString"],
+                        ["==","difficulty","intermediate"]
+                ],
+		"layout": {
+                        "symbol-placement": "line",
+                        "text-max-angle": 70,
+			"text-size": 13,
+			"text-font": ["Klokantech Noto Sans Regular"],
+			"visibility": "visible",
+                        "text-offset": [0,0.5],
+			"icon-size": 1,
+			"text-field": "{name}"
+		},
+		"paint": {
+                        "text-color":"#3366ff",
+                        "text-halo-color": "hsl(0, 0%, 100%)",
+			"text-halo-width": 1
+
+		}
+	}, {
 		"id": "piste_intermediate",
 		"type": "line",
 		"source": "openmaptiles",
